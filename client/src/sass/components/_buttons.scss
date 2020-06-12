@@ -1,0 +1,30 @@
+.SignOutButton {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  color: #afece7;
+  font-size: 1.6rem;
+  font-weight: 400;
+  height: 7vh;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+
+
+  &:hover,
+  &:active {
+    background-color: $color-quaternary;
+    color: $color-primary;
+  }
+}
+
+.ShelfSignOutButton {
+  text-decoration: none;
+  color: $color-primary;
+  font-weight: 700;
+  cursor: pointer;
+
+  
+}
