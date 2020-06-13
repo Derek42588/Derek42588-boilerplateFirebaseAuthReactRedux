@@ -12,6 +12,7 @@ import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
+import GameRoom from '../GameRoom';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
@@ -32,6 +33,7 @@ const App = ({ shelfVisible, doToggleShelf }) => (
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
       <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route path={ROUTES.GAME_ROOM} component={GameRoom} />
       <Route
         path={ROUTES.PASSWORD_FORGET}
         component={PasswordForgetPage}

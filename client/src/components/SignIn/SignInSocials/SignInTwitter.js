@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../constants/routes';
 import * as SOCIAL_AUTH_ERRORS from '../../../constants/socialAuthErrors';
+import { ReactComponent as IconTwitter } from '../../../assets/twitterSvgIcon.svg';
 
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
@@ -17,8 +18,8 @@ class SignInTwitterBase extends Component {
       this.props.firebase
         .handleSignInWithTwitter()
         .then(socialAuthUser => {
-          console.log(socialAuthUser)
-          // Create a user in your Firebase Realtime Database too
+          if (socialAuthUser.additionalUserInfo.isNewUser) {
+            // Create a user in your Firebase Realtime Database too
           return this.props.firebase
             .user(socialAuthUser.user.uid)
             .set({
@@ -26,6 +27,7 @@ class SignInTwitterBase extends Component {
               email: socialAuthUser.additionalUserInfo.profile.email,
               roles: {},
             });
+          }
         })
         .then(socialAuthUser => {
           this.setState({ error: null });
@@ -45,10 +47,13 @@ class SignInTwitterBase extends Component {
       const { error } = this.state;
    
       return (
-        <form onSubmit={this.onSubmit}>
-          <button type="submit">Sign In with Twitter</button>
+        <form className = "SignInPage__socialBox" onSubmit={this.onSubmit}>
+          <button className ="CustomButton CustomButton--socialSignIns" type="submit">
+          <IconTwitter className="CustomIcon TwitterIcon" />
+          <span className = "CustomButton__text">Sign In with Twitter</span>
+        </button>
    
-          {error && <p>{error.message}</p>}
+          {error && <p className="SignInPage__error-blurb">{error.message}</p>}
         </form>
       );
     }

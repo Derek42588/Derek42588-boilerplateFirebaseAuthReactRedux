@@ -82,7 +82,11 @@ class Firebase {
   message = uid => this.db.ref(`messages/${uid}`);
  
   messages = () => this.db.ref('messages');
+
+  // ***Game Instance API ***
+  message = uid => this.db.ref(`gameInstance/${uid}`);
  
+  messages = () => this.db.ref('gameInstance');
 
   // *** Merge Auth and DB User API *** //
 

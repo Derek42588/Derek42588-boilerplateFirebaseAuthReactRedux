@@ -2,7 +2,7 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  color: #afece7;
+  color: $color-quaternary;
   font-size: 1.6rem;
   font-weight: 400;
   height: 7vh;
@@ -12,11 +12,59 @@
   transition: all 0.2s;
   cursor: pointer;
 
-
   &:hover,
   &:active {
     background-color: $color-quaternary;
     color: $color-primary;
+  }
+}
+
+.CustomButton {
+  padding: 2rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  line-height: 5rem;
+  min-width: 16.5rem;
+  width: auto;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-senary;
+
+  &__text {
+    width: 90%;
+    text-align: start;
+  }
+
+  &--SignInPage {
+    background-color: $color-senary;
+    color: $color-tertiary;
+    align-self: center;
+    margin-bottom: 2rem;
+
+    &:hover {
+      background-color: $color-tertiary;
+      color: $color-senary;
+    }
+  }
+
+  &--socialSignIns {
+    padding: 2rem;
+    width: 27.5rem;
+        // margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+
+
+    @include respond(bpSmall) {
+      font-size: 1.5rem;
+    }
+    @include respond(micro) {
+    }
   }
 }
 
@@ -25,6 +73,4 @@
   color: $color-primary;
   font-weight: 700;
   cursor: pointer;
-
-  
 }

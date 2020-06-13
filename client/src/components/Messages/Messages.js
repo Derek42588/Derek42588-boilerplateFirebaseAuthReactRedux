@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { AuthUserContext } from '../Session';
 import { withFirebase } from '../Firebase';
 import MessageList from './MessageList';
 
@@ -129,6 +128,7 @@ const mapStateToProps = state => ({
   });
    
   const mapDispatchToProps = dispatch => ({
+
     onSetMessages: messages =>
       dispatch({ type: 'MESSAGES_SET', messages }),
     onSetMessagesLimit: limit =>
